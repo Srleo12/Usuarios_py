@@ -1,18 +1,36 @@
-from peewee import * # type: ignore
-
+from peewee import *
+from werkzeug.security import generate_password_hash, check_password_hash
 
 db =  SqliteDatabase("Usuarios.db")
+
+class User(Model):
+    username = CharField(unique=True)
+    password = CharField()
+    role = CharField()
+
+    class Meta:
+        database = db
 
 class Usuario(Model):
     nome = CharField()
     idade= DecimalField()
     email = CharField(unique=True)
-    Contato= CharField(unique=True)
+    contato= CharField(unique=True)
     CPF= CharField(unique=True)
-    Endereco=CharField()
+    endereco=CharField()
     
     class Meta:
         database = db
+
+def create_user(username, password, role='user'):
+    hashed_password = generate_password_hash(password)
+    user = User.create(username=username, password=hashed_password, role=role)
+    return user
+
+def autenticacao_user(username, password):
+    user = User.get_or_none(User.username == username)
+    if user and check_password_hash(user.password, password):
+        return user
 
 def CadastrarUsuario():
     nome_usuario = input("Digite o nome do usuário: ")
@@ -26,14 +44,15 @@ def CadastrarUsuario():
         nome=nome_usuario,
         idade=idade_usuario,
         email=email_usuario,
-        Contato=contato_usuario,
+        contato=contato_usuario,
         CPF=cpf_usuario,
-        Endereco=endereco_usuario
+        endereco=endereco_usuario
     )
 
     usuario.save()
 
     print("Usuário cadastrado com sucesso!")
+
 
 def listar_usuarios():
     usuarios = Usuario.select()
