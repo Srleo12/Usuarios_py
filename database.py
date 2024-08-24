@@ -1,7 +1,7 @@
 from peewee import * # type: ignore
 
 
-db =  SqliteDatabase("RegistroUsuario.db")
+db =  SqliteDatabase("Usuarios.db")
 
 class Usuario(Model):
     nome = CharField()
