@@ -40,11 +40,11 @@ As principais bibliotecas e ferramentas utilizadas neste sistema são:
      - Acesse o sistema no navegador através do endereço <b>http://127.0.0.1:5000/</b>.
 
 # Como Usar
-- Registro de Usuário: Acesse a página de registro para criar uma nova conta.
-- Login: Faça login com suas credenciais na página de login.
-- Dashboard: Após o login, você será redirecionado para o dashboard, onde pode ver a lista de clientes.
-- Adicionar Cliente: Na página do dashboard, há uma opção para adicionar um novo cliente.
-- Excluir Cliente: Utilize a opção de exclusão para remover um cliente da lista.
+- <b>Registro de Usuário</b>: Acesse a página de registro para criar uma nova conta.
+- <b>Login</b>: Faça login com suas credenciais na página de login.
+- <b>Dashboard</b>: Após o login, você será redirecionado para o dashboard, onde pode ver a lista de clientes.
+- <b>Adicionar Cliente</b>: Na página do dashboard, há uma opção para adicionar um novo cliente.
+- <b>Excluir Cliente</b>: Utilize a opção de exclusão para remover um cliente da lista.
 
 # Considerações Finais
 <b>Este sistema foi desenvolvido como um exemplo básico de CRUD (Create, Read, Update, Delete) utilizando Flask e Peewee. Ele pode ser expandido conforme a necessidade, adicionando novas funcionalidades ou melhorando as já existentes.</b>
