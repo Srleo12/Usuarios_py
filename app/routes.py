@@ -37,3 +37,19 @@ def init_routes(app):
     def dashboard():
         usuarios = Usuario.select()
         return render_template('dashboard.html', usuarios=usuarios)
+    
+    @app.route('/add_usuario', methods=['GET', 'POST'])
+    def add_usuario():
+        if request.method == 'POST':
+            nome = request.form['nome']
+            idade = request.form['idade']
+            email = request.form['email']
+            contato = request.form['contato']
+            CPF = request.form['CPF']
+            endereco = request.form['endereco']
+
+            Usuario.create(nome=nome, idade=idade, email=email, contato=contato, CPF=CPF, endereco=endereco)
+            flash('Cliente cadastrado com sucesso!')
+            return redirect(url_for('deshboard'))
+        
+        return render_template('add_usuario.html')
