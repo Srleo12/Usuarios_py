@@ -51,7 +51,7 @@ def CadastrarUsuario():
 
     usuario.save()
 
-    print("Usuário cadastrado com sucesso!")
+    print("\nUsuário cadastrado com sucesso!")
 
 
 def listar_usuarios():
@@ -59,10 +59,10 @@ def listar_usuarios():
     return usuarios
 
 def excluir_usuario():
-    cpf_usuario = input("Digite o CPF do usuário que deseja excluir: ")
+    cpf_usuario = input("\nDigite o CPF do usuário que deseja excluir: ")
     usuario = Usuario.get_or_none(CPF=cpf_usuario)
     if usuario:
         usuario.delete_instance()
-        print("Usuário excluído com sucesso!")
+        print("\nUsuário excluído com sucesso!")
     else:
-        print("Usuário não encontrado.")
+        print("\nUsuário não encontrado.")
